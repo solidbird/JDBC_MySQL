@@ -1,3 +1,5 @@
+import java.util.Vector;
+
 import javax.swing.JFrame;
 
 import com.jogamp.opengl.GL2;
@@ -7,6 +9,7 @@ import com.jogamp.opengl.GLEventListener;
 import com.jogamp.opengl.GLProfile;
 import com.jogamp.opengl.awt.GLCanvas;
 import com.jogamp.opengl.glu.GLU;
+import com.jogamp.opengl.math.VectorUtil;
 
 public class Edge1 implements GLEventListener {
    private GLU glu = new GLU();
@@ -40,11 +43,18 @@ public void display(GLAutoDrawable arg0) {
     final GL2 gl = arg0.getGL().getGL2();
     gl.glTranslatef(0f, 0f, -3f);
     gl.glBegin(GL2.GL_LINES);
-    gl.glVertex3f(0f,0f,0f);
-    gl.glVertex3f(0f,1f, 0f);
+    gl.glVertex3f(-0.75f,0f,0);
+    gl.glVertex3f(0f,-0.75f, 0);
     gl.glEnd();
     
     gl.glBegin(GL2.GL_LINES);
+    gl.glVertex3f(-0.75f,0f,1.5f);
+    gl.glVertex3f(0f,-0.75f, 1.5f);
+    gl.glEnd();
+    
+    
+    
+    /*gl.glBegin(GL2.GL_LINES);
     gl.glVertex3f(0f,1f, 0f);
     gl.glVertex3f(1f,1f, 0f);
     gl.glEnd();
@@ -55,9 +65,24 @@ public void display(GLAutoDrawable arg0) {
     gl.glEnd();
     
     gl.glBegin(GL2.GL_LINES);
-    gl.glVertex3f(1f,1f, 0f);
+    gl.glVertex3f(1f,0f, 0f);
     gl.glVertex3f(0f,0f, 0f);
     gl.glEnd();
+    
+    gl.glBegin(GL2.GL_LINES);
+    gl.glVertex3f(0f,0f,0f);
+    gl.glVertex3f(-0.25f,-0.25f, 0);
+    gl.glEnd();
+    
+    gl.glBegin(GL2.GL_LINES);
+    gl.glVertex3f(-0.25f,-0.25f, 0);
+    gl.glVertex3f(-0.25f,0.75f, 0);
+    gl.glEnd();
+    
+    gl.glBegin(GL2.GL_LINES);
+    gl.glVertex3f(-0.25f,-0.25f, 0);
+    gl.glVertex3f(-0.25f,0.75f, 0);
+    gl.glEnd();*/
     
    // gl.glBegin(GL2.GL_LINES);
    // gl.glVertex3f(-0.75f,0f,1f);

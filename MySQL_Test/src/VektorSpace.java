@@ -33,10 +33,11 @@ public class VektorSpace implements GLEventListener{
 		final GL2 gl = arg0.getGL().getGL2();
 		gl.glTranslatef(0f, 0f, -2.5f);
 		
-	      gl.glBegin(GL2.GL_LINES);
-	      gl.glVertex3f(-0.75f,0f,0);
-	      gl.glVertex3f(0f,-0.75f, 0);
-
+		gl.glBegin(GL2.GL_LINES);
+	      gl.glVertex3f(0f,0f,0f);
+	      gl.glVertex3f(1f,0f, 1f);
+	      gl.glEnd();
+	      
 	      //3d line
 	      
 	      //3 units in to the window
@@ -49,13 +50,7 @@ public class VektorSpace implements GLEventListener{
 	      gl.glEnd();*/
 	      //top
 
-	      gl.glVertex3f(-0.75f,0f,3f);
-	      gl.glVertex3f(0f,-0.75f,3f);
-	      gl.glVertex3f(-0.75f,0f,0);
-	      gl.glVertex3f(-0.75f,0f,3f);
-	      gl.glVertex3f(0f,-0.75f, 0);
-	      gl.glVertex3f(0f,-0.75f,3f);
-	      gl.glEnd();
+	     
 
 	      
 		
@@ -75,7 +70,18 @@ public class VektorSpace implements GLEventListener{
 
 	@Override
 	public void reshape(GLAutoDrawable arg0, int arg1, int arg2, int arg3, int arg4) {
-		
+		GL2 gl = arg0.getGL().getGL2();
+	    if(arg4 <= 0)
+	    	arg4 = 1;
+				
+	    final float h = (float) arg3 / (float) arg4;
+	    gl.glViewport(0, 0, arg3, arg4);
+	    gl.glMatrixMode(GL2.GL_PROJECTION);
+	    gl.glLoadIdentity();
+			
+	    glu.gluPerspective(45.0f, h, 1.0, 20.0);
+	    gl.glMatrixMode(GL2.GL_MODELVIEW);
+	    gl.glLoadIdentity();
 		
 	}
 
